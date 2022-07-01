@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.scss";
+import axios from "axios";
 
 function App() {
+  const [data, setData] = useState({});
+
+  const getData = async () => {
+    try {
+      const result = await axios.get(
+        "https://api.lazydesignerexcuses.com/random"
+      );
+      setData(result.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="content">
+        <h1 className="title">Website is down</h1>
+        <div className="excuse">
+          <h3>
+            <span>{`Excuse : `}</span>
+            {data.Excuse}
+          </h3>
+        </div>
+        <button onClick={getData}>New excuse</button>
+      </div>
     </div>
   );
 }

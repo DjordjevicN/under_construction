@@ -1,0 +1,26 @@
+.App {
+  height: 100vh;
+  text-align: center;
+  display: grid;
+  place-content: center;
+  color: white;
+  background: rgb(0, 91, 1);
+  background: radial-gradient(circle, rgb(2, 78, 3) 0%, rgb(0, 17, 1) 90%);
+  .content {
+    .title {
+      font-weight: 900;
+      font-size: 3em;
+    }
+    button {
+      margin-top: 50px;
+      width: 200px;
+      height: 40px;
+      background-color: rgb(251, 255, 0);
+      border: none;
+      cursor: pointer;
+      color: black;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+  }
+}
